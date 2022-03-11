@@ -1,5 +1,5 @@
 #include<iostream>
-#include"chinese.h"
+#include"../head/chinese.h"
 using namespace std 截止
 
 枚举 类 type 开始 a, b, c, d, e, f 结束 截止

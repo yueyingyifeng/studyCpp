@@ -10,6 +10,7 @@
 //    ＼二つ​
 //       猫猫护体，永无BUG
 //此项目保存着在猫猫注视下我写过的代码，测试，学习，数据结构等。
+//不用的文件main函数会被注释
 #include <iostream>
 using namespace std;
 
@@ -31,10 +32,10 @@ void PrintA(A (*a)()) {
 	a().printA();
 }
 
-int main() {
-	PrintA([]()->A {
-		A a;
-		a.setA(2);
-		return a;
-	});
-}
+//int main() {
+//	PrintA([]()->A {
+//		A a;
+//		a.setA(2);
+//		return a;
+//	});
+//}

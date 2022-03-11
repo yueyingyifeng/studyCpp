@@ -10,7 +10,7 @@ r[2,4,3]
 就和加法竖式计算一样
 */
 #include <iostream>
-#include "LinkedList.cpp"
+#include "../datastructure/LinkedList.cpp"
 using namespace std;
 
 using ListNode = Node<int>;

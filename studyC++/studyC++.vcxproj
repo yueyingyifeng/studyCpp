@@ -19,45 +19,47 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bank.cpp" />
-    <ClCompile Include="Binary tree.cpp" />
-    <ClCompile Include="BombMan.cpp" />
-    <ClCompile Include="code.cpp" />
+    <ClCompile Include="datastructure\DListNode.cpp" />
+    <ClCompile Include="datastructure\ListNode.cpp" />
+    <ClCompile Include="question\Bank.cpp" />
+    <ClCompile Include="datastructure\Binary tree.cpp" />
+    <ClCompile Include="question\BombMan.cpp" />
+    <ClCompile Include="question\code.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
-    <ClCompile Include="DLinkedList.cpp" />
-    <ClCompile Include="exampleOfLinkedList.cpp" />
-    <ClCompile Include="Factorial.cpp" />
-    <ClCompile Include="friendclass.cpp" />
-    <ClCompile Include="Generalized table.cpp" />
-    <ClCompile Include="High precision date.cpp" />
-    <ClCompile Include="High precision.cpp" />
-    <ClCompile Include="hui_wen.cpp" />
-    <ClCompile Include="LinkedList.cpp" />
-    <ClCompile Include="question_0.cpp" />
-    <ClCompile Include="question_1.cpp" />
-    <ClCompile Include="question_2.cpp" />
-    <ClCompile Include="question_3.cpp" />
-    <ClCompile Include="queue.cpp" />
-    <ClCompile Include="queueAndListener.cpp" />
-    <ClCompile Include="queueAndstack.cpp" />
-    <ClCompile Include="QueueByLinkedList.cpp" />
-    <ClCompile Include="quick_Sort.cpp" />
-    <ClCompile Include="sampleOfThread.cpp" />
-    <ClCompile Include="Sort_Bubble.cpp" />
-    <ClCompile Include="Sort_Bucket.cpp" />
-    <ClCompile Include="Sort_insert.cpp" />
-    <ClCompile Include="Sort_quick.cpp" />
-    <ClCompile Include="Sort_quick1.cpp" />
-    <ClCompile Include="Sort_quick2.cpp" />
-    <ClCompile Include="Sort_Selection.cpp" />
-    <ClCompile Include="StackByLinkedlist.cpp" />
-    <ClCompile Include="thd.cpp" />
-    <ClCompile Include="the 3x+1 problem.cpp" />
-    <ClCompile Include="Trigonometric_Functions.cpp" />
-    <ClCompile Include="VectorToLine.cpp" />
+    <ClCompile Include="datastructure\DLinkedList.cpp" />
+    <ClCompile Include="datastructure\exampleOfLinkedList.cpp" />
+    <ClCompile Include="question\Factorial.cpp" />
+    <ClCompile Include="study\friendclass.cpp" />
+    <ClCompile Include="datastructure\Generalized table.cpp" />
+    <ClCompile Include="question\High precision date.cpp" />
+    <ClCompile Include="question\High precision.cpp" />
+    <ClCompile Include="question\hui_wen.cpp" />
+    <ClCompile Include="datastructure\LinkedList.cpp" />
+    <ClCompile Include="question\question_0.cpp" />
+    <ClCompile Include="question\question_1.cpp" />
+    <ClCompile Include="question\question_2.cpp" />
+    <ClCompile Include="question\question_3.cpp" />
+    <ClCompile Include="datastructure\queue.cpp" />
+    <ClCompile Include="datastructure\queueAndListener.cpp" />
+    <ClCompile Include="datastructure\queueAndstack.cpp" />
+    <ClCompile Include="datastructure\QueueByLinkedList.cpp" />
+    <ClCompile Include="sort\quick_Sort.cpp" />
+    <ClCompile Include="study\sampleOfThread.cpp" />
+    <ClCompile Include="sort\Sort_Bubble.cpp" />
+    <ClCompile Include="sort\Sort_Bucket.cpp" />
+    <ClCompile Include="sort\Sort_insert.cpp" />
+    <ClCompile Include="sort\Sort_quick.cpp" />
+    <ClCompile Include="sort\Sort_quick1.cpp" />
+    <ClCompile Include="sort\Sort_quick2.cpp" />
+    <ClCompile Include="sort\Sort_Selection.cpp" />
+    <ClCompile Include="datastructure\StackByLinkedlist.cpp" />
+    <ClCompile Include="study\thd.cpp" />
+    <ClCompile Include="question\the 3x+1 problem.cpp" />
+    <ClCompile Include="question\Trigonometric_Functions.cpp" />
+    <ClCompile Include="question\VectorToLine.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="chinese.h" />
+    <ClInclude Include="head\chinese.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

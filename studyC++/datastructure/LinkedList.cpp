@@ -1,21 +1,8 @@
 #include <iostream>
+#include "ListNode.cpp"
 #include <vector>
 using namespace std;
-//链表的节点
-template<typename T>
-class Node {
-public:
-	T data;
-	Node<T>* next;
-	Node() {
-		data = {};
-		next = nullptr;
-	}
-	Node(T data) {
-		this->data = data;
-		next = nullptr;
-	}
-};
+
 
 template<typename T>
 class LinkedList {
