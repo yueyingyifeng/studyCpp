@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\study">
+      <UniqueIdentifier>{25800c65-da71-4bc5-b69f-cdb215df2c67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\sort">
+      <UniqueIdentifier>{2d12dc7c-5569-460a-9b2d-ddede7a5443b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\datastructure">
+      <UniqueIdentifier>{ef78c42e-e9e7-49cf-a5ad-ea04c67935cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\question">
+      <UniqueIdentifier>{2951d77b-e85c-4277-b6a8-08d3f38abe2c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ConsoleApplication1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Sort_Bubble.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Sort_Bucket.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Sort_insert.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Sort_quick.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Sort_quick1.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Sort_quick2.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Sort_Selection.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Bank.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="Binary tree.cpp">
+      <Filter>源文件\datastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="BombMan.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="code.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="DLinkedList.cpp">
+      <Filter>源文件\datastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="Factorial.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="exampleOfLinkedList.cpp">
+      <Filter>源文件\datastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="friendclass.cpp">
+      <Filter>源文件\study</Filter>
+    </ClCompile>
+    <ClCompile Include="Generalized table.cpp">
+      <Filter>源文件\datastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="High precision date.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="High precision.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="hui_wen.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>源文件\datastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="question_0.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="question_1.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="question_2.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="question_3.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="queue.cpp">
+      <Filter>源文件\datastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="queueAndListener.cpp">
+      <Filter>源文件\datastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="queueAndstack.cpp">
+      <Filter>源文件\datastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="QueueByLinkedList.cpp">
+      <Filter>源文件\datastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="quick_Sort.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorToLine.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="Trigonometric_Functions.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="the 3x+1 problem.cpp">
+      <Filter>源文件\question</Filter>
+    </ClCompile>
+    <ClCompile Include="thd.cpp">
+      <Filter>源文件\study</Filter>
+    </ClCompile>
+    <ClCompile Include="sampleOfThread.cpp">
+      <Filter>源文件\study</Filter>
+    </ClCompile>
+    <ClCompile Include="StackByLinkedlist.cpp">
+      <Filter>源文件\datastructure</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="chinese.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
