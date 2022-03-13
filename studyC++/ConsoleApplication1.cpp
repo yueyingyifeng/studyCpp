@@ -15,28 +15,21 @@
 #include <iostream>
 using namespace std;
 
-class A {
-	int a_;
+class MyClass {
 public:
-	void printA() {
-		cout << a_ << endl;
-	}
-	void setA(int a_) {
-		this->a_ = a_;
-	}
-	A* operator()() {
-		return this;
-	}
+    void FunB() {
+        cout << "call FunB" << endl;
+    }
+    void pFun2(void (MyClass::* nonstatic)()) {
+        (this->*nonstatic)();
+    }
 };
 
-void PrintA(A (*a)()) {
-	a().printA();
-}
+int main() {
+    MyClass* obj = new MyClass;
+    void (MyClass:: * pFunB)() = &MyClass::FunB;
 
-//int main() {
-//	PrintA([]()->A {
-//		A a;
-//		a.setA(2);
-//		return a;
-//	});
-//}
+    (obj->*pFunB)();
+
+    obj->pFun2(&MyClass::FunB);//嗯，此时这个函数归哪个对象已经一清二楚了
+}
