@@ -1,6 +1,6 @@
 /**
 * 2022年3月16日
-* 模拟MVC设计模式
+* 模拟MVC模式
 */
 #include <iostream>
 using namespace std;
