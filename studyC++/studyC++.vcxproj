@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="datastructure\DListNode.cpp" />
     <ClCompile Include="datastructure\ListNode.cpp" />
+    <ClCompile Include="design_patterns\MVC.cpp" />
     <ClCompile Include="question\Bank.cpp" />
     <ClCompile Include="datastructure\Binary tree.cpp" />
     <ClCompile Include="question\BombMan.cpp" />

@@ -25,11 +25,11 @@ public:
     }
 };
 
-int main() {
-    MyClass* obj = new MyClass;
-    void (MyClass:: * pFunB)() = &MyClass::FunB;
-
-    (obj->*pFunB)();
-
-    obj->pFun2(&MyClass::FunB);//嗯，此时这个函数归哪个对象已经一清二楚了
-}
+//int main() {
+//    MyClass* obj = new MyClass;
+//    void (MyClass:: * pFunB)() = &MyClass::FunB;
+//
+//    (obj->*pFunB)();
+//
+//    obj->pFun2(&MyClass::FunB);//嗯，此时这个函数归哪个对象已经一清二楚了
+//}
