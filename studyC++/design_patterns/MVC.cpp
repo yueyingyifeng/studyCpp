@@ -45,14 +45,14 @@ public:
 	}
 };
 
-int main() {
-	Module m(3);
-	View v;
-
-	Controler c(m, v);
-
-	c.upDataView();
-
-
-	return 0;
-}
+//int main() {
+//	Module m(3);
+//	View v;
+//
+//	Controler c(m, v);
+//
+//	c.upDataView();
+//
+//
+//	return 0;
+//}
