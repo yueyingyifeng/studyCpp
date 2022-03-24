@@ -1,6 +1,6 @@
 #include <iostream>
 #include <thread>
-#include<mutex>//ÒýÈë Ïß³Ì»¥³â
+#include<mutex>//å¼•å…¥ çº¿ç¨‹äº’æ–¥
 #include <Windows.h>
 
 using namespace std;
@@ -9,7 +9,7 @@ int work{ 10 };
 void thd1() {
 	while(work>5){
 		if (m.try_lock()) {
-			cout << "×ÓÏß³Ì1Ö´ÐÐ " << work-- << endl;
+			cout << "å­çº¿ç¨‹1æ‰§è¡Œ " << work-- << endl;
 			m.unlock();
 		}
 	}
@@ -18,7 +18,7 @@ void thd1() {
 void thd2() {
 	while (work > 0) {
 		if (m.try_lock()) {
-			cout << "×ÓÏß³Ì2Ö´ÐÐ " << work-- << endl;
+			cout << "å­çº¿ç¨‹2æ‰§è¡Œ " << work-- << endl;
 			m.unlock();
 		}
 	}
@@ -31,6 +31,6 @@ void thd2() {
 //		});
 //	t1.detach(); 
 //	t2.detach();
-//	cout << "Ö÷Ïß³ÌÔÝÍ£" << endl;
-//	system("pause");//Èç¹ûÃ»ÓÐÔÝÍ££¬×ÓÏß³ÌÒ²½«»á±»ÖÕÖ¹
+//	cout << "ä¸»çº¿ç¨‹æš‚åœ" << endl;
+//	system("pause");//å¦‚æžœæ²¡æœ‰æš‚åœï¼Œå­çº¿ç¨‹ä¹Ÿå°†ä¼šè¢«ç»ˆæ­¢
 //}
