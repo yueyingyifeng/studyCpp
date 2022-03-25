@@ -44,14 +44,14 @@ public:
 		}
 		return false;
 	}
-
+	//替换占位符的数据
 	String* args(const char* arg) {
 		int length = this->length();
 		int arg_length = this->length(arg);
 		int total = length + arg_length;
 
 		char* result = new char[total];
-		int replace_p;
+		int replace_p;//占位符起始位置
 
 		bool havePlaceholder = false;
 
@@ -72,9 +72,10 @@ public:
 		String replace(arg);						
 		String rear(this->cut(replace_p + 2, length));	//占位符之后的字符串
 
-		//最终合并操作1 2 3;(1+2)+3
+		//最终合并操作,例如 1 2 3 -> (1+2)+3
 		char* t = front + replace;
 		result = merge(t,rear());
+		//覆盖数据
 		data = new char[total];
 		data = result;
 
@@ -147,26 +148,13 @@ public:
 	}
 };
 
-const char* cut(const char* temp, int begin, int end) {
-	int result_length = end - begin + 1;
-	char* result = new char[result_length] {};
+int main() {
+	String a{ "this is %1 and %2" };
+	String b{ "[%1,%2]" };
 
-	for (int n{}; n < result_length; n++) {
-		result[n] = temp[begin + n];
-	}
+	cout << a.args("a")->to_str() << endl;
+	cout << a.args("b")->to_str() << endl;
 
-	cout << result_length << endl << endl;
-	/*
-	* 比如从原数组{1，2，3}截取1-2的内容，也就是2，3
-	* result数组是这样：2，3，乱码，乱码,...乱码,\0
-	*/
-	return result;
+	cout << b.args("12")->args("34")->to_str();
+	
 }
-
-//int main() {
-//	String a{ "this is %1 and %2" };
-//
-//	cout << a.args("a")->to_str() << endl;
-//	cout << a.args("b")->to_str();
-//	
-//}
