@@ -148,13 +148,13 @@ public:
 	}
 };
 
-int main() {
-	String a{ "this is %1 and %2" };
-	String b{ "[%1,%2]" };
-
-	cout << a.args("a")->to_str() << endl;
-	cout << a.args("b")->to_str() << endl;
-
-	cout << b.args("12")->args("34")->to_str();
-	
-}
+//int main() {
+//	String a{ "this is %1 and %2" };
+//	String b{ "[%1,%2]" };
+//
+//	cout << a.args("a")->to_str() << endl;
+//	cout << a.args("b")->to_str() << endl;
+//
+//	cout << b.args("12")->args("34")->to_str();
+//	
+//}
