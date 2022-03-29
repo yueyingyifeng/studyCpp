@@ -104,10 +104,10 @@ public:
 		cout << endl;
 		for (int p{ 1 }; p <= area; p++) {
 			if (p % maxValue != 0) {
-				cout << real_img[p - 1].point << ' ';
+				cout << real_img[p - 1].point;
 			}
 			else {
-				cout << real_img[p - 1].point << ' ';
+				cout << real_img[p - 1].point	;
 				cout << endl;
 			}
 		}
@@ -117,58 +117,107 @@ public:
 class Function {
 	Fun_img fun_img;
 	int maxValue;
+	char p = '*';
 public:
 	Function(int maxValue)
 		:maxValue(maxValue)
 	{
 		fun_img = Fun_img(maxValue);
+		for (int n{ -maxValue }; n < maxValue; n++) {
+			fun_img.setPoint(n, 0, '-');
+		}
+		for (int n{ -maxValue }; n < maxValue; n++) {
+			fun_img.setPoint(0, n, '|');
+		}
+		fun_img.setPoint(maxValue, 0, '>');
+		fun_img.setPoint(0, maxValue, '^');
+		fun_img.setPoint(0, 0, '+');
 	}
-	//直线函数：y = ax + b
+
+	//直线函数:y = ax + b
 	void LinearFunction(int a,int b = 0) {
 		for (int y{ -maxValue }; y <= maxValue; y++) {
 			for (int x{ -maxValue }; x <= maxValue; x++) {
 				if (y == a * x + b ) {
-					fun_img.setPoint(x, y);
+					fun_img.setPoint(x, y, p);
 				}
 			}
 		}
 	}
-	//曲线函数：y = ax^2 + bx + c
+	//二次函数:y = ax^2 + bx + c
 	void QuadraticFunction(int a = 1,int b = 0,int c = 0) {
 		for (int y{ -maxValue }; y <= maxValue; y++) {
 			for (int x{ -maxValue }; x <= maxValue; x++) {
 				if (y == (a * pow(x,2) + b*x + c)) {
-					fun_img.setPoint(x, y);
+					fun_img.setPoint(x, y, p);
 				}
 			}
 		}
 	}
-
+	//指数函数:y = a^x + b,a>=1
+	void ExponentialFunction(int a, int b = 0) {
+		for (int y{ -maxValue }; y <= maxValue; y++) {
+			for (int x{ -maxValue }; x <= maxValue; x++) {
+				if (!(a >= 1)) {
+					cout << "指数函数a必须大于0!" << endl;
+					return;
+				}
+				if (y == ((int)pow(a, x) + b)) {
+					fun_img.setPoint(x, y, p);
+				}
+			}
+		}
+	}
+	//对数函数:y = logax, a >= 0.(a为底数)
+	void LogarithmicFunction(int a) {
+		for (int y{ -maxValue }; y <= maxValue; y++) {
+			for (int x{ -maxValue }; x <= maxValue; x++) {
+				if (!(a >= 1)) {
+					cout << "指数函数a必须大于0!" << endl;
+					return;
+				}
+				if (y == (log(x) / log(a))) {
+					fun_img.setPoint(x, y, p);
+				}
+			}
+		}
+	}
+	//设置笔刷
+	void setPoint(char p) {
+		this->p = p;
+	}
 
 	//显示函数图像
-	void show(bool haveAxis = true) {
-		if (haveAxis) {
-			for (int n{ -maxValue }; n < maxValue; n++) {
-				fun_img.setPoint(n, 0,'-');
-			}
-			for (int n{ -maxValue }; n < maxValue; n++) {
-				fun_img.setPoint(0, n, '|');
-			}
-			fun_img.setPoint(maxValue, 0, '>');
-			fun_img.setPoint(0, maxValue, '^');
-			fun_img.setPoint(0, 0, '+');
-			fun_img.show();
-		}
-		else
-		{
-			fun_img.show();
-		}
+	void show() {
+		fun_img.show();
+	}
+	//显示函数坐标系
+	void showReferImg() {
+		fun_img.showReferImg();
 	}
 };
 
 int main() {
-	Function f(15);
-	f.LinearFunction(3);
+	Function f(10);
+	f.LinearFunction(3);//一次函数
+	f.setPoint('1');
+	f.QuadraticFunction(-2, 3, 2);//二次函数
+	f.setPoint('2');
+	f.ExponentialFunction(3,2);//指数函数
+	f.setPoint('3');
+	f.LogarithmicFunction(2);//对数函数
+
 	f.show();
 	
 }
+
+
+//int main()
+//{
+//	double a = 2, x = 2;//以2为底的对数函数 
+//	for (x = 2; x <= 16; x += 2)
+//	{
+//		cout << "x=" << x << "时，以2为底的对数函数=" << log(x) / log(a) << endl;
+//	}
+//	return 0;
+//}
