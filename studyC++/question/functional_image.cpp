@@ -5,7 +5,9 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
+/*
+* 坐标类，保存x和y还有其代表的字符样式
+*/
 class Coord {
 public:
 	int x, y;
@@ -18,7 +20,17 @@ public:
 	Coord(int x, int y)
 		:x(x), y(y) {}
 };
-
+/*
+* 图像模板，提供一套函数图像显示的类。
+* 就是负责显示最基础的转换
+* 原始数据是
+* 0,0 0,1 0,2
+* 1,0 1,1...
+* 而数学坐标系则是
+* 1,-1 0,1 1,1
+* 0,-1 0,0...
+* 本类就是负责转换的，refer是转换好的，但保存数据，而real则是参考refer来存放 点(point) 的
+*/
 class Fun_img {
 	vector<Coord> refer_img;//只保存坐标系的图
 	vector<Coord> real_img;	//保存最终图像
@@ -34,8 +46,8 @@ protected:
 			}
 		}
 	}
-	int getPbyCoord(int x,int y) {
-		for (int n{}; n < refer_img.size();n++) {
+	int getPbyCoord(int x, int y) {
+		for (int n{}; n < refer_img.size(); n++) {
 			if (refer_img[n].x == x && refer_img[n].y == y) {
 				return n;
 			}
@@ -57,16 +69,16 @@ public:
 		}
 		for (int y = 0; y < this->maxValue; y++) {
 			for (int x = 0; x < this->maxValue; x++) {
-				/*cout << "[" <<//输出图像
+				/*cout << "[" <<//输出图像,调试用
 					(maxOfHorizon - x >= 0 ? -(maxOfHorizon - x) : x - maxOfHorizon) <<
 					"," <<
 					(maxOfVertical - y >= 0 ? maxOfVertical - y : -(y - maxOfVertical)) << "]" << " ";*/
-				refer_img.push_back(Coord((maxValue - x >= 0 ? -(maxValue - x) :  x - maxValue),
-									(maxValue - y >= 0 ? maxValue - y : -(y - maxValue))
-								   ));
+				refer_img.push_back(Coord((maxValue - x >= 0 ? -(maxValue - x) : x - maxValue),
+					(maxValue - y >= 0 ? maxValue - y : -(y - maxValue))
+				));
 			}
 		}
-		real_img.resize(refer_img.size(),Coord());
+		real_img.resize(refer_img.size(), Coord());
 	}
 	//设置点的样式
 	void setPointStyle(char p) {
@@ -89,7 +101,7 @@ public:
 	//显示坐标系实体,此方法仅显示函数图像的所有坐标，没有具体点
 	void showReferImg() {
 		cout << endl;
-		for (int p{1}; p <= area; p++) {
+		for (int p{ 1 }; p <= area; p++) {
 			if (p % maxValue != 0) {
 				cout << "[" << refer_img[p - 1].x << "," << refer_img[p - 1].y << "]" << " ";
 			}
@@ -107,17 +119,21 @@ public:
 				cout << real_img[p - 1].point;
 			}
 			else {
-				cout << real_img[p - 1].point	;
+				cout << real_img[p - 1].point;
 				cout << endl;
 			}
 		}
 	}
 };
-
+/*
+* 数学类,封装(使用)了图像模板
+* 包含四个基础的数学函数（精度问题还有几个无法运用）
+* 并显示操作数学函数
+*/
 class Function {
-	Fun_img fun_img;
-	int maxValue;
-	char p = '*';
+	Fun_img fun_img;//封装
+	int maxValue;	//轴的最大值[-maxValue,maxValue]
+	char p = '*';	//默认显示样式
 public:
 	Function(int maxValue)
 		:maxValue(maxValue)
@@ -135,20 +151,20 @@ public:
 	}
 
 	//直线函数:y = ax + b
-	void LinearFunction(int a,int b = 0) {
+	void LinearFunction(int a, int b = 0) {
 		for (int y{ -maxValue }; y <= maxValue; y++) {
 			for (int x{ -maxValue }; x <= maxValue; x++) {
-				if (y == a * x + b ) {
+				if (y == a * x + b) {
 					fun_img.setPoint(x, y, p);
 				}
 			}
 		}
 	}
 	//二次函数:y = ax^2 + bx + c
-	void QuadraticFunction(int a = 1,int b = 0,int c = 0) {
+	void QuadraticFunction(int a = 1, int b = 0, int c = 0) {
 		for (int y{ -maxValue }; y <= maxValue; y++) {
 			for (int x{ -maxValue }; x <= maxValue; x++) {
-				if (y == (a * pow(x,2) + b*x + c)) {
+				if (y == (a * pow(x, 2) + b * x + c)) {
 					fun_img.setPoint(x, y, p);
 				}
 			}
@@ -197,19 +213,19 @@ public:
 	}
 };
 
-int main() {
-	Function f(10);
-	f.LinearFunction(3);//一次函数
-	f.setPoint('1');
-	f.QuadraticFunction(-2, 3, 2);//二次函数
-	f.setPoint('2');
-	f.ExponentialFunction(3,2);//指数函数
-	f.setPoint('3');
-	f.LogarithmicFunction(2);//对数函数
-
-	f.show();
-	
-}
+//int main() {
+//	Function f(10);
+//	f.LinearFunction(3);//一次函数
+//	f.setPoint('1');
+//	f.QuadraticFunction(-2, 3, 2);//二次函数
+//	f.setPoint('2');
+//	f.ExponentialFunction(3,2);//指数函数
+//	f.setPoint('3');
+//	f.LogarithmicFunction(2);//对数函数
+//
+//	f.show();
+//	
+//}
 
 
 //int main()
