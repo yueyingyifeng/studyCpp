@@ -1,7 +1,8 @@
 ﻿/*
 * 			Author : yueyingyifeng
-* 		CreateDate : 2022/4/9 20:07:17
-* 	   Description ：背单词的设计
+* 		CreateDate : 2022/3/31 22:46:02
+* 	   Description ：有一个字符串，比如str = "this is a class"。要求剪除其中一个单词
+*					比如result = str.cut("class"); result的值则为str里面的class,如果没有则是Null
 */
 #include <iostream>
 #include <vector>
@@ -13,14 +14,6 @@
 #include <string>
 
 using namespace std;
-
-
-
-
-//主程序
-class App {
-
-};
 
 //int main() {
 //
