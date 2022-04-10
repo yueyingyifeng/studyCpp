@@ -28,23 +28,23 @@ public:
 	}
 };
 
-int main() {
-	double d{ 1.33 };
-	int i = static_cast<int>(d);
-	cout << i << endl;
-	cout << d << endl;
-
-	A* a = new A();
-	B* b = new B();
-
-	a = static_cast<A*>(b);
-	//b = dynamic_cast<B*>(a);
-
-	a->say();
-	a->Aa();
-	b->say();
-	b->Bb();
-
-
-	return 0;
-}
+//int main() {
+//	double d{ 1.33 };
+//	int i = static_cast<int>(d);
+//	cout << i << endl;
+//	cout << d << endl;
+//
+//	A* a = new A();
+//	B* b = new B();
+//
+//	a = static_cast<A*>(b);
+//	//b = dynamic_cast<B*>(a);
+//
+//	a->say();
+//	a->Aa();
+//	b->say();
+//	b->Bb();
+//
+//
+//	return 0;
+//}
