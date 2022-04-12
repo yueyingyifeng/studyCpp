@@ -72,19 +72,19 @@ void f(mutex& m,int& total) {
 	m.unlock();
 }
 
-//int main() {
-//	LineApp l(10,vector<int>{1,1,2,3});
-//	l.start();
-//
-//	/*测试
-//	mutex m;
-//	int tt = 3;
-//	thread t(f, ref(m), ref(tt));
-//	thread t1(f, ref(m), ref(tt));
-//
-//	t.detach();
-//	t1.detach();
-//	*/
-//	system("pause");
-//	return 0;
-//}
+// int main() {
+// 	LineApp l(10,vector<int>{1,1,2,3});
+// 	l.start();
+	
+// 	测试
+// 	mutex m;
+// 	int tt = 3;
+// 	thread t(f, ref(m), ref(tt));
+// 	thread t1(f, ref(m), ref(tt));
+
+// 	t.detach();
+// 	t1.detach();
+	
+// 	system("pause");
+// 	return 0;
+// }
