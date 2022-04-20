@@ -4,6 +4,7 @@
 * 	   Description ：背单词的设计
 */
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <queue>
 #include <list>
@@ -13,8 +14,43 @@
 #include <string>
 
 using namespace std;
+//词组，word单词，para释义
+class Wppair {
+	int id;
+	string word;
+	string para;
+public:
+	Wppair() {
+		id = -1;
+		word = "null";
+		para = "null";
+	}
+	Wppair(int id, string word, string para) {
+		this->id = id;
+		this->word = word;
+		this->para = para;
+	}
+	int getId() {
+		return id;
+	}
+	string getWord() {
+		return word;
+	}
+	string getPara() {
+		return para;
+	}
 
-using spair = pair<string, string>;
+	void setId(int id) {
+		this->id = id;
+	}
+	void setWord(int word) {
+		this->word = word;
+	}
+	void setPara(int para) {
+		this->para = para;
+	}
+};
+using spair = pair<int, Wppair>;
 //输入信息
 class input {
 	string data;
@@ -72,7 +108,7 @@ public:
 };
 //建立并录入词汇与释义的映射关系
 class WordsLoader {
-	unordered_map<string,string> map;
+	unordered_map<int, Wppair> map;
 public:
 	enum class type {
 		EN, CN
@@ -104,7 +140,7 @@ private:
 
 
 
-
+		int id{};
 		while (input_buffer_word != "!") {
 
 			switch (mode)
@@ -152,7 +188,8 @@ private:
 			cin >> input_buffer_para;
 
 			msg()();
-			map.insert(spair(input_buffer_word, input_buffer_para));
+			map.insert(spair(id, Wppair(id, input_buffer_word, input_buffer_para)));
+			id++;
 		}//while end
 	}
 public:
@@ -165,11 +202,11 @@ public:
 		mode = t;
 		loadGui();
 	}
-	//载入单词，参数模式.目标，释义
-	void loadParm(string word,string para) {
+	//载入单词，参数模式.id,目标，释义
+	void loadParm(int id,string word,string para) {
 		if (mode == type::CN) {
 			if (!isCNChar(word, mode)) {
-				map.insert(spair(word, para));
+				map.insert(spair(id,Wppair(id,word,para)));
 				msg()("success");
 
 			}
@@ -180,7 +217,7 @@ public:
 		}
 		else {
 			if (!isCNChar(word, mode)) {
-				map.insert(spair(word, para));
+				map.insert(spair(id, Wppair(id, word, para)));
 				msg()("success en");
 			}
 			else {
@@ -190,18 +227,18 @@ public:
 		}
 	}
 	//获取已载入的词组
-	unordered_map<string,string> getMap() {
+	unordered_map<int,Wppair> getMap() {
 		return map;
 	}
-	//获取词对应的释义
-	string operator[](const string& s) {
+	//获取词对应的释义--废弃
+	/*string operator[](const string& s) {
 		if (map[s] != "") {
 			return map[s];
 		}
 		string t ="this word's para is not exist at:";
 		t += to_string(__LINE__);
 		return t;
-	}
+	}*/
 
 	//获取模式
 	type getMode() {
@@ -250,18 +287,88 @@ public:
 		return false;
 	}
 };
+//导入/导出,键值对的形式
+class File {
 
+};
 
-//主程序
-class App {
+class Tool {
 public:
-	App() {
-
+	//返回[a,b]
+	static int Random(int a, int b) {
+		srand((unsigned int)time(NULL));
+		return (rand() % (b - a + 1)) + a;
 	}
 };
 
+//主程序
+class App {
+	vector<int> list;
+	Learning* learning;
+	WordsLoader* wordsloader;
+	//共有多少个词组
+	int length;
+
+	void Shuffle() {
+		
+	}
+public:
+	App() {
+		WordsLoader::type t;
+		do {
+			msg()("选择录入的模式,词->释义");
+			msg()("1.中->英");
+			msg()("2.英->中");
+			input i;
+			if (i() == "1") {
+				t = WordsLoader::type::CN;
+				break;
+			}
+			else if (i() == "2") {
+				t = WordsLoader::type::EN;
+				break;
+			}
+			else {
+				msg()("1或者2，请不要输入其他的内容");
+			}
+		} while (1);
+		wordsloader = new WordsLoader(t);
+		length = wordsloader->getMap().size();
+		learning = new Learning(length);
+		list = vector<int>();
+		for (int n{}; n < length; n++) {
+			list.push_back(n);
+		}
+		
+
+	}
+	~App() {
+		delete learning;
+		delete wordsloader;
+	}
+	//开始！
+	void start() {
+		
+	}
+};
+
+//返回[a,b]
+int Random(int a, int b) {
+	srand((unsigned int)time(NULL));
+	return (rand() % (b - a + 1)) + a;
+}
+
 int main() {
-	input i;
-	msg()(i());
+	/*App a;
+	a.start();*/
+	vector<int> v{ 1,2,3,4 };
+
+	for (int n{}; n < v.size();n++) {
+		swap<int>(v[n], v[Random(n,v.size()-1)]);
+	}
+
+	for (auto a : v) {
+		cout << a << " ";
+	}
 	return 0;
 }
