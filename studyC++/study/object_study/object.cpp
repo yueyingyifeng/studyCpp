@@ -27,6 +27,11 @@ public:
     string getStr(){
         return str;
     }
+
+    string toString() override{
+
+        return to_string(a) + str;
+    }
 };
 
 
@@ -35,7 +40,7 @@ void fun(Object* o){
 
     cout << a->getA() << endl;
     cout << a->getStr() << endl;
-
+    cout << a->toString();
 }
 
 // int main(){
