@@ -170,6 +170,19 @@ public:
 			findNode(node->right, data);
 		}
 	}
+	//统计有多少节点
+	int size(Node<T>* node) {
+		static int count = 0;
+		if (node != nullptr) {
+			count++;
+			size(node->left);
+			size(node->right);
+		}
+		return count;
+	}
+	
+
+
 	//根据数据删除节点
 	//void delNode(Node<T>* node, T data) {
 	//	static Node<T>* root_temp = new Node<T>();	//保存要删除的节点的父节点
@@ -276,26 +289,59 @@ public:
 		return resultSet;
 	}
 
+	//在控制台中画出树
+	void displayTree(Node<T>* node, int ident = 0) {
+		int* vec_left = new int[getHeight(node)];
+			if (ident > 0)
+			{
+				for (int i = 0; i < ident - 1; ++i)
+				{
+					cout << (vec_left[i] ? "│   " : "    ");
+				}
+				cout << (vec_left[ident - 1] ? "├── " : "└── ");
+			}
+
+		if (!node)
+		{
+			cout << ("(null)\n");
+			return;
+		}
+
+		cout << node->data << endl;
+		if (!node->left && !node->right)
+		{
+			return;
+		}
+
+		vec_left[ident] = 1;
+		displayTree(node->left, ident + 1);
+		vec_left[ident] = 0;
+		displayTree(node->right, ident + 1);
+	}
+
 };
 
 
-//int main() {
-//	const int length = 6;
-//	int arr[length] = { 6,5,4,3,2,1 };
-//	BinarySearchTree<int> bst(arr, length);
-//	vector<int> result1 = bst.preOrder(bst.getRoot());
-//	vector<int> result2 = bst.inOrder(bst.getRoot());
-//
-//	for (int n : result1) {
-//		cout << n << " ";
-//	}
-//	cout << endl;
-//	for (int n : result2) {
-//		cout << n << " ";
-//	}
-//
-//	cout << "------" << endl;
-//	cout << bst.findNodeMax(bst())->data << endl;;
-//
-//	return 0;
-//}
+
+
+int main() {
+	const int length = 10;
+	int arr[length] = { 6,4,2,1,3,5,9,7,8,10 };
+	BinarySearchTree<int> bst(arr, length);
+	vector<int> result1 = bst.preOrder(bst.getRoot());
+	vector<int> result2 = bst.inOrder(bst.getRoot());
+
+	for (int n : result1) {
+		cout << n << " ";
+	}
+	cout << endl;
+	for (int n : result2) {
+		cout << n << " ";
+	}
+
+	cout << endl << "------" << endl;
+	cout << bst.size(bst()) << endl << endl;
+	bst.displayTree(bst());
+
+	return 0;
+}
